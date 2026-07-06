@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+
+/* body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #111827;
+}
+
+html.dark body {
+  background-color: #0f172a;
+  color: #f8fafc;
+} */
+
+main {
+    max-width: 1280px;
+    margin: auto;
+    min-height: 90vh;
+    padding: 10px;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px rgba(248, 113, 113, 0.28));
+    transform: scale(1);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 24px rgba(245, 158, 11, 0.45));
+    transform: scale(1.03);
+  }
+}
+
+@keyframes marquee-glow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translateX(-4%);
+  }
+
+  50% {
+    opacity: 0.75;
+    transform: translateX(4%);
+  }
+}
+
+@keyframes film-drift-left {
+  from {
+    transform: rotate(-14deg) translateY(-28px);
+  }
+
+  to {
+    transform: rotate(-14deg) translateY(28px);
+  }
+}
+
+@keyframes film-drift-right {
+  from {
+    transform: rotate(14deg) translateY(28px);
+  }
+
+  to {
+    transform: rotate(14deg) translateY(-28px);
+  }
+}
+
+@keyframes curtain-sweep {
+  from {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+
+  to {
+    transform: translateX(260%) skewX(-18deg);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 620ms ease both;
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 2.8s ease-in-out infinite;
+}
+
+.animate-marquee-glow {
+  animation: marquee-glow 4s ease-in-out infinite;
+}
+
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.film-strip {
+  position: absolute;
+  top: -2rem;
+  bottom: -2rem;
+  width: 5rem;
+  opacity: 0.18;
+  background:
+    linear-gradient(#020617, #020617) center / 54% 100% no-repeat,
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 14px,
+      rgba(255, 255, 255, 0.9) 14px 26px,
+      transparent 26px 42px
+    );
+  pointer-events: none;
+}
+
+.film-strip-left {
+  left: 1.25rem;
+  animation: film-drift-left 5.5s ease-in-out infinite alternate;
+}
+
+.film-strip-right {
+  right: 1.25rem;
+  animation: film-drift-right 6s ease-in-out infinite alternate;
+}
+
+.curtain-shine {
+  position: absolute;
+  inset: 0 auto 0 -30%;
+  width: 28%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  animation: curtain-sweep 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-soft-pulse,
+  .animate-marquee-glow,
+  .film-strip,
+  .curtain-shine {
+    animation: none;
+  }
+}
